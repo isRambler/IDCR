@@ -1,4 +1,4 @@
-# IDCE
+# IDCR
 
 使用generate_scores.py生成打分矩阵（基于recbole）
 
