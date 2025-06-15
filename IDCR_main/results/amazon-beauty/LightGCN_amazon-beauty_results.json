@@ -1,0 +1,81 @@
+{
+    "model": "LightGCN",
+    "dataset": "amazon-beauty",
+    "best_valid_score": 0.1027,
+    "best_valid_result": {
+        "recall@5": 0.1195,
+        "recall@10": 0.1446,
+        "recall@20": 0.1726,
+        "recall@50": 0.2145,
+        "ndcg@5": 0.0946,
+        "ndcg@10": 0.1027,
+        "ndcg@20": 0.1098,
+        "ndcg@50": 0.1181,
+        "mrr@5": 0.0865,
+        "mrr@10": 0.0899,
+        "mrr@20": 0.0918,
+        "mrr@50": 0.0932,
+        "precision@5": 0.0241,
+        "precision@10": 0.0146,
+        "precision@20": 0.0087,
+        "precision@50": 0.0043
+    },
+    "test_result": {
+        "recall@5": 0.1623,
+        "recall@10": 0.1885,
+        "recall@20": 0.2177,
+        "recall@50": 0.261,
+        "ndcg@5": 0.1345,
+        "ndcg@10": 0.143,
+        "ndcg@20": 0.1504,
+        "ndcg@50": 0.1591,
+        "mrr@5": 0.126,
+        "mrr@10": 0.1296,
+        "mrr@20": 0.1317,
+        "mrr@50": 0.1331,
+        "precision@5": 0.0329,
+        "precision@10": 0.0192,
+        "precision@20": 0.0111,
+        "precision@50": 0.0054
+    },
+    "parameters": {
+        "seed": 2024,
+        "gpu_id": 0,
+        "use_gpu": true,
+        "train_batch_size": 2048,
+        "eval_batch_size": 409600,
+        "learning_rate": 0.0005,
+        "epochs": 10,
+        "eval_args": {
+            "split": {
+                "RS": [
+                    0.7,
+                    0.1,
+                    0.2
+                ]
+            }
+        },
+        "save_dataset": true,
+        "save_dataloaders": false,
+        "metrics": [
+            "Recall",
+            "NDCG",
+            "MRR",
+            "Precision"
+        ],
+        "valid_metric": "NDCG@10",
+        "topk": [
+            5,
+            10,
+            20,
+            50
+        ],
+        "data_path": "recbole/dataset",
+        "log_wandb": false,
+        "log_tensorboard": false,
+        "stopping_step": 10,
+        "state": "INFO",
+        "n_layers": 1,
+        "reg_weight": 0.01
+    }
+}

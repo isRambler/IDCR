@@ -1,0 +1,137 @@
+{
+    "model": "SUPCCL",
+    "dataset": "ml-1m",
+    "best_valid_score": 0.1715,
+    "best_valid_result": {
+        "recall@5": 0.0779,
+        "recall@10": 0.135,
+        "recall@20": 0.2254,
+        "recall@50": 0.3952,
+        "ndcg@5": 0.1256,
+        "ndcg@10": 0.142,
+        "ndcg@20": 0.1715,
+        "ndcg@50": 0.2298,
+        "mrr@5": 0.2173,
+        "mrr@10": 0.2422,
+        "mrr@20": 0.2551,
+        "mrr@50": 0.2605,
+        "precision@5": 0.11,
+        "precision@10": 0.1023,
+        "precision@20": 0.0918,
+        "precision@50": 0.074
+    },
+    "test_result": {
+        "recall@5": 0.0575,
+        "recall@10": 0.1005,
+        "recall@20": 0.1697,
+        "recall@50": 0.3101,
+        "ndcg@5": 0.1857,
+        "ndcg@10": 0.1845,
+        "ndcg@20": 0.1981,
+        "ndcg@50": 0.241,
+        "mrr@5": 0.3156,
+        "mrr@10": 0.338,
+        "mrr@20": 0.3487,
+        "mrr@50": 0.3525,
+        "precision@5": 0.1796,
+        "precision@10": 0.1618,
+        "precision@20": 0.1445,
+        "precision@50": 0.1185
+    },
+    "parameters": {
+        "seed": 2024,
+        "gpu_id": 0,
+        "use_gpu": true,
+        "train_batch_size": 2048,
+        "eval_batch_size": 4096,
+        "learning_rate": 0.001,
+        "epochs": 300,
+        "load_col": {
+            "inter": [
+                "user_id",
+                "item_id",
+                "rating",
+                "timestamp"
+            ]
+        },
+        "field_separator": "\t",
+        "USER_ID_FIELD": "user_id",
+        "ITEM_ID_FIELD": "item_id",
+        "RATING_FIELD": "rating",
+        "TIME_FIELD": "timestamp",
+        "USE_FIELD_SEPARATOR": true,
+        "eval_args": {
+            "split": {
+                "RS": [
+                    0.7,
+                    0.1,
+                    0.2
+                ]
+            },
+            "order": "TO"
+        },
+        "save_dataset": true,
+        "save_dataloaders": false,
+        "metrics": [
+            "Recall",
+            "NDCG",
+            "MRR",
+            "Precision"
+        ],
+        "valid_metric": "NDCG@20",
+        "topk": [
+            5,
+            10,
+            20,
+            50
+        ],
+        "data_path": "recbole/dataset",
+        "log_wandb": false,
+        "log_tensorboard": false,
+        "stopping_step": 10,
+        "state": "INFO",
+        "n_layers": 2,
+        "embedding_size": 64,
+        "reg_weight": 0.0001,
+        "ssl_temp": 0.1,
+        "ssl_reg": 0.3,
+        "ssl_ratio": 0.3,
+        "ssl_mode": 3,
+        "ssl_strategy": 9,
+        "aug_type": 1,
+        "positive_cl_type": 1,
+        "lightgcn_flag": false,
+        "pairwise_loss": false,
+        "random_strategy": true,
+        "augmentation": true,
+        "add_initial_embedding": true,
+        "interacted_neighbors": true,
+        "similar_user_neighbors": true,
+        "similar_item_neighbors": true,
+        "different_view": true,
+        "different_view_weight": 1.0,
+        "interacted_neighbors_weight": 1.0,
+        "sample_item_weight": 1.0,
+        "sample_user_weight": 1.0,
+        "sample_item_weight_flag": false,
+        "sample_user_weight_flag": false,
+        "supcon_flag": false,
+        "prob_sampling": true,
+        "sub_graph_pool": 300,
+        "k": 5,
+        "train_neg_sample_args": {
+            "by": 1,
+            "distribution": "uniform",
+            "sample_num": 1,
+            "alpha": 1.0,
+            "dynamic": false,
+            "candidate_num": 0
+        },
+        "train_data_step": 4096,
+        "val_data_step": 256,
+        "test_data_step": 256,
+        "neg_sampling": {
+            "uniform": 1
+        }
+    }
+}

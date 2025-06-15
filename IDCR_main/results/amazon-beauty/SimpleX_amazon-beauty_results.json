@@ -1,0 +1,98 @@
+{
+    "model": "SimpleX",
+    "dataset": "amazon-beauty",
+    "best_valid_score": 0.0178,
+    "best_valid_result": {
+        "recall@5": 0.0211,
+        "recall@10": 0.0297,
+        "recall@20": 0.0404,
+        "recall@50": 0.0603,
+        "ndcg@5": 0.015,
+        "ndcg@10": 0.0178,
+        "ndcg@20": 0.0206,
+        "ndcg@50": 0.0245,
+        "mrr@5": 0.0132,
+        "mrr@10": 0.0143,
+        "mrr@20": 0.0151,
+        "mrr@50": 0.0157,
+        "precision@5": 0.0043,
+        "precision@10": 0.0031,
+        "precision@20": 0.0021,
+        "precision@50": 0.0013
+    },
+    "test_result": {
+        "recall@5": 0.0393,
+        "recall@10": 0.0493,
+        "recall@20": 0.0614,
+        "recall@50": 0.0821,
+        "ndcg@5": 0.0309,
+        "ndcg@10": 0.0341,
+        "ndcg@20": 0.0372,
+        "ndcg@50": 0.0413,
+        "mrr@5": 0.0283,
+        "mrr@10": 0.0296,
+        "mrr@20": 0.0305,
+        "mrr@50": 0.0311,
+        "precision@5": 0.0081,
+        "precision@10": 0.0051,
+        "precision@20": 0.0032,
+        "precision@50": 0.0017
+    },
+    "parameters": {
+        "seed": 2024,
+        "gpu_id": 0,
+        "use_gpu": true,
+        "train_batch_size": 2048,
+        "eval_batch_size": 4096,
+        "learning_rate": 0.001,
+        "epochs": 3,
+        "load_col": {
+            "inter": [
+                "user_id",
+                "item_id",
+                "rating",
+                "timestamp"
+            ]
+        },
+        "field_separator": "\t",
+        "USER_ID_FIELD": "user_id",
+        "ITEM_ID_FIELD": "item_id",
+        "RATING_FIELD": "rating",
+        "TIME_FIELD": "timestamp",
+        "USE_FIELD_SEPARATOR": true,
+        "eval_args": {
+            "split": {
+                "RS": [
+                    0.7,
+                    0.1,
+                    0.2
+                ]
+            },
+            "order": "TO"
+        },
+        "save_dataset": true,
+        "save_dataloaders": false,
+        "metrics": [
+            "Recall",
+            "NDCG",
+            "MRR",
+            "Precision"
+        ],
+        "valid_metric": "NDCG@10",
+        "topk": [
+            5,
+            10,
+            20,
+            50
+        ],
+        "data_path": "recbole/dataset",
+        "log_wandb": false,
+        "log_tensorboard": false,
+        "stopping_step": 10,
+        "state": "INFO",
+        "gamma": 0.7,
+        "embedding_size": 64,
+        "margin": 0.9,
+        "negative_weight": 50
+    }
+}

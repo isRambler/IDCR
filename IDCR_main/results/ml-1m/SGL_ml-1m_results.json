@@ -1,0 +1,99 @@
+{
+    "model": "SGL",
+    "dataset": "ml-1m",
+    "best_valid_score": 0.1124,
+    "best_valid_result": {
+        "recall@5": 0.0527,
+        "recall@10": 0.0961,
+        "recall@20": 0.1661,
+        "recall@50": 0.3154,
+        "ndcg@5": 0.1025,
+        "ndcg@10": 0.1124,
+        "ndcg@20": 0.1332,
+        "ndcg@50": 0.1836,
+        "mrr@5": 0.1825,
+        "mrr@10": 0.2042,
+        "mrr@20": 0.2164,
+        "mrr@50": 0.2224,
+        "precision@5": 0.0927,
+        "precision@10": 0.0872,
+        "precision@20": 0.0785,
+        "precision@50": 0.0648
+    },
+    "test_result": {
+        "recall@5": 0.0417,
+        "recall@10": 0.0747,
+        "recall@20": 0.1292,
+        "recall@50": 0.2526,
+        "ndcg@5": 0.1657,
+        "ndcg@10": 0.1609,
+        "ndcg@20": 0.1669,
+        "ndcg@50": 0.2022,
+        "mrr@5": 0.2826,
+        "mrr@10": 0.304,
+        "mrr@20": 0.3139,
+        "mrr@50": 0.3183,
+        "precision@5": 0.1603,
+        "precision@10": 0.1446,
+        "precision@20": 0.1285,
+        "precision@50": 0.1074
+    },
+    "parameters": {
+        "seed": 2024,
+        "gpu_id": 0,
+        "use_gpu": true,
+        "train_batch_size": 2048,
+        "eval_batch_size": 4096,
+        "learning_rate": 0.001,
+        "epochs": 100,
+        "load_col": {
+            "inter": [
+                "user_id",
+                "item_id",
+                "rating",
+                "timestamp"
+            ]
+        },
+        "field_separator": "\t",
+        "USER_ID_FIELD": "user_id",
+        "ITEM_ID_FIELD": "item_id",
+        "RATING_FIELD": "rating",
+        "TIME_FIELD": "timestamp",
+        "USE_FIELD_SEPARATOR": true,
+        "eval_args": {
+            "split": {
+                "RS": [
+                    0.7,
+                    0.1,
+                    0.2
+                ]
+            },
+            "order": "TO"
+        },
+        "save_dataset": true,
+        "save_dataloaders": false,
+        "metrics": [
+            "Recall",
+            "NDCG",
+            "MRR",
+            "Precision"
+        ],
+        "valid_metric": "NDCG@10",
+        "topk": [
+            5,
+            10,
+            20,
+            50
+        ],
+        "data_path": "recbole/dataset",
+        "log_wandb": false,
+        "log_tensorboard": false,
+        "stopping_step": 10,
+        "state": "INFO",
+        "n_layers": 3,
+        "ssl_temp": 0.5,
+        "ssl_reg": 0.05,
+        "dropout": 0.1,
+        "type": "ED"
+    }
+}
